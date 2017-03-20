@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.CowMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Cow" >
+    <id column="cowId" property="cowid" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="cowCategory" property="cowcategory" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="CHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="inWeight" property="inweight" jdbcType="DOUBLE" />
+    <result column="inDate" property="indate" jdbcType="CHAR" />
+    <result column="houseId" property="houseid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cowId, sex, cowCategory, birthday, weight, inWeight, inDate, houseId, state
+  </sql>
+
+</mapper>

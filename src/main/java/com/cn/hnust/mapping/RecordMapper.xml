@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Record" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="houseId" property="houseid" jdbcType="INTEGER" />
+    <result column="cowId" property="cowid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, houseId, cowId, state, time
+  </sql>
+
+</mapper>
