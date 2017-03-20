@@ -3,11 +3,7 @@ package com.cn.test;
 
 import com.alibaba.fastjson.JSON;
 import com.cn.hnust.dao.UserMapper;
-import com.cn.hnust.pojo.Cow;
-import com.cn.hnust.pojo.CowCategory;
-import com.cn.hnust.pojo.CowHouse;
-import com.cn.hnust.pojo.User;
-import com.cn.hnust.pojo.Record;
+import com.cn.hnust.pojo.*;
 import com.cn.hnust.service.*;
 import com.cn.hnust.util.DateUtils;
 import com.github.pagehelper.PageHelper;
@@ -50,6 +46,16 @@ public class TestMyBatis {
 
     @Resource
     private CowService cowService;
+
+    @Resource
+    private StockService stockService;
+
+    @Resource
+    private FeedsService feedsService;
+
+    @Resource
+    private FeedCategoryService feedCategoryService;
+
 
     @Resource
     private RecordService recordService;
@@ -109,15 +115,22 @@ public class TestMyBatis {
         record.setCowid(1000);
         record.setState(2);
         recordService.save(record);*/
-
+        FeedCategory fc =feedCategoryService.selectByKey(1);
+        logger.info("test:"+gson.toJson(fc));
 
    /*     Record record =  recordService.selectByKey(1);
         record.setState(3);
         recordService.updateAll(record);*/
-        Record record = new Record();
+    /*    Record record = new Record();
 
         List<Record>  recordList = recordService.selectByRecord(record,1,10);
-        logger.info("result:{}",gson.toJson(recordList));
+        logger.info("result:{}",gson.toJson(recordList));*/
+
+/*        Stock stock =stockService.selectByKey(1);
+        logger.info("test result:"+gson.toJson(stock));*/
+
+/*        Feeds feeds =feedsService.selectByKey(1);
+        logger.info("test result:"+gson.toJson(feeds));*/
 
 /*        CowHouse cowHouse1 = cowHouseService.selectByKey(1000);
         cowHouse1.setState(0);
