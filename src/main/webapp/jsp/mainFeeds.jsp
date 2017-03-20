@@ -56,26 +56,20 @@ $(document).ready(function(){
         <li><span><img src="images/t04.png" /></span>统计</li>
         </ul>--%>
 
-        <form action="${pageContext.request.contextPath}/getCowList.do">
+        <form action="${pageContext.request.contextPath}/getFeedsList.do">
 
             <ul class="toolbar">
 
-                <li> <label>品种：</label>
-                    <select name="cowcategory" class="select3">
-                        <option value="">请选择状态</option>
-                        <c:forEach var="category" items="${categoryList}">
-                             <option value="${category.id}">${category.categoryname}</option>
-                        </c:forEach>
-                    </select>
+                <li> <label>操作人：</label>
+                             <input name="username" type="text" class="scinput1" />
                     　</li> 　　　　
 
 
-                <li><label>牛只状态：</label>
+                <li><label>状态：</label>
                     <select name="state" class="select3">
                         <option value="">请选择状态</option>
-                        <option value="1">正常</option>
-                        <option value="2">离场</option>
-                        <option value="3">删除</option>
+                        <option value="1">入库</option>
+                        <option value="2">出库</option>
                    </select></li></ul>
                 <input name="submit" type="submit" class="scbtn" value="查询"/>
 
@@ -94,50 +88,42 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>牛只编号<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>牛只品种</th>
-        <th>性别</th>
-        <th>出生日期</th>
-        <th>体重</th>
-        <th>入场体重</th>
-        <th>入场日期</th>
-        <th>所在牛舍</th>
+        <th>记录编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>操作人</th>
+        <th>饲料品牌</th>
+        <th>数量</th>
+        <th>单位</th>
+        <th>价格</th>
+        <th>总金额</th>
+        <th>生产厂商</th>
         <th>状态</th>
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${cowVoList}" var="cowVo">
+        <c:forEach items="${feedsVoList}" var="fv">
             <tr>
             <td><input name="" type="checkbox" value="" /></td>
-            <td>${cowVo.cow.cowid}</td>
-            <td>${cowVo.categoryname}</td>
+            <td>${fv.feeds.feedid}</td>
+            <td>${fv.feeds.username}</td>
             <td>
-                <c:if test="${cowVo.cow.sex==1}">
-                    公
-                </c:if>
-                <c:if test="${cowVo.cow.sex==2}">
-                    母
-                </c:if>
+                ${fv.feedCategory}
 
             </td>
-            <td>${cowVo.cow.birthday}</td>
-            <td>${cowVo.cow.weight}</td>
-            <td>${cowVo.cow.inweight}</td>
-            <td>${cowVo.cow.indate}</td>
-            <td>${cowVo.cow.houseid}</td>
+            <td>${fv.feeds.num}</td>
+            <td>${fv.feeds.unit}</td>
+            <td>${fv.feeds.price}</td>
+            <td>${fv.feeds.total}</td>
+            <td>${fv.feeds.manufacturer}</td>
             <td>
-                <c:if test="${cowVo.cow.state==1}">
-                    正常
+                <c:if test="${fv.feeds.state==1}">
+                    入库
                 </c:if>
-                <c:if test="${cowVo.cow.state==2}">
-                    离场
-                </c:if>
-                <c:if test="${cowVo.cow.state==3}">
-                    删除
+                <c:if test="${fv.feeds.state==2}">
+                    出库
                 </c:if>
             </td>
-            <td><a href="${pageContext.request.contextPath}/toAddCow.do" class="tablelink">新增</a>   <a href="${pageContext.request.contextPath}/updateCow.do?cowId=${cowVo.cow.cowid}" class="tablelink">修改</a>  <%--<a href="${pageContext.request.contextPath}/deletecowHouse.do?id=${cowHouse.id}" class="tablelink">删除</a>--%></td>
+            <td><a href="${pageContext.request.contextPath}/toAddFeeds.do" class="tablelink">新增</a>   <%--<a href="${pageContext.request.contextPath}/updateFeeds.do?cowId=${fv.feeds.feedid}" class="tablelink">修改</a> --%> <a href="${pageContext.request.contextPath}/deleteFeeds.do?id=${fv.feeds.id}" class="tablelink">删除</a></td>
             </tr>
         </c:forEach>
         </tbody>

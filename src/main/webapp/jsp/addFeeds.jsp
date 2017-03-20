@@ -22,78 +22,43 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <form action="${pageContext.request.contextPath}/addCow.do" >
+    <form action="${pageContext.request.contextPath}/addFeeds.do" >
         <ul class="forminfo">
-             <input name="cowid" type="hidden" class="dfinput" value="${cow.cowid}" />
-        <li><label>品种名称：</label>
-            <select name="cowcategory" class="select3">
-                <c:forEach var="category" items="${categoryList}">
-                    <option value="${category.id}"
-                            <c:if test="${cow.cowcategory== category.id}">
+             <input name="id" type="hidden" class="dfinput" value="${feeds.cowid}" />
+        <li><label>饲料品牌：</label>
+            <select name="feedid" class="select3">
+                <c:forEach var="fc" items="${feedCategoryList}">
+                    <option value="${fc.feedid}"
+                            <c:if test="${feeds.feedid== fc.feedid}">
                                 selected="selected"
                             </c:if>
-                            >${category.categoryname}</option>
+                            >${fc.feedname}</option>
                 </c:forEach>
 
             </select>
         </li>
             <li>
-                <label>性别：</label>
-                <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <select name="sex" class="select3">
-                    <option value="1"
-                            <c:if test="${cow.sex==1}">
-                                selected="selected"
-                            </c:if>
-                            >公</option>
-                    <option value="2"
-                            <c:if test="${cow.sex==2}">
-                                selected="selected"
-                            </c:if>
-                            >母</option>
-
-
-                </select>
+                <label>数量：</label>
+                <input name="num" type="text" class="dfinput" value="${user.role}" />
             </li>
 
             <li>
-                <label>牛舍：</label>
-                <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <select name="houseid" class="select3">
-                    <c:forEach var="house" items="${cowHouseList}">
-                        <option value="${house.houseid}"
-                                <c:if test="${cow.houseid== house.houseid}">
-                                    selected="selected"
-                                </c:if>
-                                >${house.houseid}</option>
-                    </c:forEach>
-
-                </select>
+                <label>单位：</label>
+                <input name="unit" type="text" class="dfinput" value="公斤" placeholder="公斤" />
             </li>
 
             <li>
-                <label>出生日期：</label>
+                <label>价格：</label>
                 <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <input name="birthday" type="text" class="dfinput" value="${cow.birthday}"  placeHolder="yyyy-MM-dd" />
+                <input name="price" type="text" class="dfinput" value="${cow.birthday}"    />
             </li>
             <li>
-                <label>入场日期：</label>
+                <label>生产厂商：</label>
                 <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <input name="indate" type="text" class="dfinput" value="${cow.indate}" placeHolder="yyyy-MM-dd" />
-            </li>
-
-            <li>
-                <label>体重：</label>
-                <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <input name="weight" type="text" class="dfinput" value="${cow.weight}"  />
+                <input name="manufacturer" type="text" class="dfinput" value="${cow.inweight}"  />
             </li>
             <li>
-                <label>入场体重：</label>
-                <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
-                <input name="inweight" type="text" class="dfinput" value="${cow.inweight}"  />
-            </li>
-            <li>
-                <label>牛只状态：</label>
+                <label>状态：</label>
                 <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
                 <select name="state" class="select3">
 
@@ -101,17 +66,12 @@
                             <c:if test="${cow.state==1}">
                                 selected="selected"
                             </c:if>
-                            >正常</option>
+                            >入库</option>
                     <option value="2"
                             <c:if test="${cow.state==2}">
                                 selected="selected"
                             </c:if>
-                            >离场</option>
-                    <option value="3"
-                            <c:if test="${cow.state==3}">
-                                selected="selected"
-                            </c:if>
-                            >删除</option>
+                            >出库</option>
                 </select>
             </li>
         <%--<li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>--%>
