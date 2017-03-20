@@ -5,8 +5,9 @@
     <id column="feedid" property="feedid" jdbcType="INTEGER" />
     <result column="feedname" property="feedname" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    feedid, feedname, description
+    feedid, feedname, description, state
   </sql>
 </mapper>

@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 
 public class FeedCategory {
-
     @Id
     @Column(name = "feedid")
     private Integer feedid;
@@ -12,6 +11,8 @@ public class FeedCategory {
     private String feedname;
 
     private String description;
+
+    private Integer state;
 
     public Integer getFeedid() {
         return feedid;
@@ -35,5 +36,13 @@ public class FeedCategory {
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

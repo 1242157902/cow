@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>添加饲料名称</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -22,29 +22,30 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <form action="${pageContext.request.contextPath}/addCategory.do" >
+    <form action="${pageContext.request.contextPath}/addFeedCategory.do" >
         <ul class="forminfo">
-             <input name="id" type="hidden" class="dfinput" value="${cowCategory.id}" />
-        <li><label>品类名称：</label><input name="categoryname" type="text" class="dfinput" value="${cowCategory.categoryname}" /></li>
+             <input name="feedid" type="hidden" class="dfinput" value="${feedCategory.feedid}" />
+        <li><label>品类名称：</label><input name="feedname" type="text" class="dfinput" value="${feedCategory.feedname}" /></li>
         <li>
             <label>品种状态：</label>
             <%--<input name="role" type="text" class="dfinput" value="${user.role}" />--%>
             <select name="state" class="select3">
-                <option>请选择状态</option>
+
+                <option></option>
                 <option value="0"
-                        <c:if test="${cowCategory.state==0}">
+                        <c:if test="${feedCategory.state==0}">
                         selected="selected"
                               </c:if>
                                 >在用</option>
                 <option value="1"
-                        <c:if test="${cowCategory.state==1}">
+                        <c:if test="${feedCategory.state==1}">
                             selected="selected"
                         </c:if>
                         >不可用</option>
             </select>
         </li>
         <%--<li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>--%>
-        <li><label>品种描述：</label><input name="description" type="text" class="dfinput" value="${cowCategory.description}" /></li>
+        <li><label>品种描述：</label><input name="description" type="text" class="dfinput" value="${feedCategory.description}" /></li>
         <%--<li><label>登陆密码</label><textarea name="" cols="" rows="" class="textinput"></textarea></li>--%>
         <li><label>&nbsp;</label><input name="submit" type="submit" class="btn" value="确认保存"/></li>
         </ul>

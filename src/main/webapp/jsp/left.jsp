@@ -112,7 +112,7 @@ $(function(){
             <li><cite></cite><a href="flow.html" target="rightFrame">饲料入库</a><i></i></li>
             <li><cite></cite><a href="project.html" target="rightFrame">饲料出库</a><i></i></li>
             <li><cite></cite><a href="search.html" target="rightFrame">饲料库存明细</a><i></i></li>
-            <li><cite></cite><a href="tech.html" target="rightFrame">饲料品牌管理</a><i></i></li>
+            <li><cite></cite><a href="/getFeedCategoryList.do" target="rightFrame">饲料品牌管理</a><i></i></li>
         </ul>
     </dd>
 
