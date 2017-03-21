@@ -3,6 +3,7 @@ package com.cn.hnust.controller;
 import com.cn.hnust.pojo.*;
 import com.cn.hnust.service.FeedCategoryService;
 import com.cn.hnust.service.FeedsService;
+import com.cn.hnust.service.StockService;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
@@ -33,6 +34,9 @@ public class FeedsController {
 
     @Resource
     private FeedCategoryService feedCategoryService;
+
+    @Resource
+    private StockService stockService;
 
     @RequestMapping("/getFeedsList.do")
     public ModelAndView getFeedsList(Feeds feeds,
@@ -84,6 +88,52 @@ public class FeedsController {
             feeds.setTotal(feeds.getNum() * feeds.getPrice());
             feeds.setUsername(user.getName());
             feedsService.save(feeds);
+
+            int feedid = feeds.getFeedid();
+            Stock ss = new Stock();
+            ss.setFeedid(feedid);
+            Stock stock = ((List<Stock>)stockService.selectByStock(ss,1,10)).get(0);
+            //判断是入库还是出库，并加减到库存
+            int state = feeds.getState();
+            switch (state)
+            {
+                case 1:
+                    //入库
+                    if(null!=stock)
+                    {
+                        double quantity = stock.getQuantity();
+                        quantity +=feeds.getNum();
+                        stock.setQuantity(quantity);
+                        stockService.updateAll(stock);
+                    }else{
+                        Stock s = new Stock();
+                        s.setFeedid(feedid);
+                        FeedCategory fc = feedCategoryService.selectByKey(feedid);
+                        s.setFeedname(fc.getFeedname());
+                        s.setQuantity(feeds.getNum());
+                        stockService.save(s);
+                    }
+
+                    break;
+                case 2:
+                    //出库
+                    if(null!=stock)
+                    {
+                        double quantity = stock.getQuantity();
+                        quantity -=feeds.getNum();
+                        stock.setQuantity(quantity);
+                        stockService.updateAll(stock);
+                    }else{
+                        Stock s = new Stock();
+                        s.setFeedid(feedid);
+                        FeedCategory fc = feedCategoryService.selectByKey(feedid);
+                        s.setFeedname(fc.getFeedname());
+                        s.setQuantity(- feeds.getNum());
+                        stockService.save(s);
+                    }
+                    break;
+            }
+
             feedsList = feedsService.selectByFeeds(feeds, 1, 10);
             for(Feeds f:feedsList)
             {

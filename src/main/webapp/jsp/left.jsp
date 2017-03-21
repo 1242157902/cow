@@ -109,9 +109,9 @@ $(function(){
             <span><img src="images/leftico02.png" /></span>饲料管理
         </div>
         <ul class="menuson">
-            <li><cite></cite><a href="/getFeedsList.do" target="rightFrame">饲料入库</a><i></i></li>
-            <li><cite></cite><a href="project.html" target="rightFrame">饲料出库</a><i></i></li>
-            <li><cite></cite><a href="search.html" target="rightFrame">饲料库存明细</a><i></i></li>
+            <li><cite></cite><a href="/getFeedsList.do?state=1" target="rightFrame">饲料入库</a><i></i></li>
+            <li><cite></cite><a href="/getFeedsList.do?state=2" target="rightFrame">饲料出库</a><i></i></li>
+            <li><cite></cite><a href="/getStockList.do" target="rightFrame">饲料库存明细</a><i></i></li>
             <li><cite></cite><a href="/getFeedCategoryList.do" target="rightFrame">饲料品牌管理</a><i></i></li>
         </ul>
     </dd>
@@ -162,19 +162,7 @@ $(function(){
     </ul>
     
     </dd>  
-	
-	
-	  <dd><div class="title"><span><img src="images/leftico04.png" /></span>库存管理</div>
-    <ul class="menuson">
-        <li><cite></cite><a href="#">基本信息维护</a><i></i></li>
-        <li><cite></cite><a href="#">入库管理</a><i></i></li>
-        <li><cite></cite><a href="#">出库管理</a><i></i></li>
-        <li><cite></cite><a href="#">盘点管理</a><i></i></li>
-		<li><cite></cite><a href="#">明细项目查询</a><i></i></li>
-        <li><cite></cite><a href="#">物资月末填耗查询</a><i></i></li>
-        <li><cite></cite><a href="#">物资消耗查询</a><i></i></li>
-    </ul>
-    
+
     </dd>  
 	
 	

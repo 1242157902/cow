@@ -53,10 +53,10 @@
     
     <div class="welinfo">
     <span><img src="images/dp.png" alt="提醒" /></span>
-    <b>Uimaker信息管理系统使用指南</b>
+    <b>信息管理系统使用指南</b>
     </div>
     
-    <ul class="infolist">
+<%--    <ul class="infolist">
     <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
     <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
     <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
@@ -73,7 +73,7 @@
     <li><a href="#">后台用户设置(权限)</a></li>
     <li><a href="#">系统设置</a></li>
     </ul>
-    
+    --%>
     
     </div>
     

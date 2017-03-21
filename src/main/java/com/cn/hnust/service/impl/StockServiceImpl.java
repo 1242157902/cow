@@ -19,8 +19,13 @@ public class StockServiceImpl extends BaseService<Stock> implements StockService
 
     public List<Stock> selectByStock(Stock stock,int pageNum,int pageSize)
     {
-        Example example = new Example(Cow.class);
+        Example example = new Example(Stock.class);
         Example.Criteria criteria = example.createCriteria();
+
+        if(stock.getFeedid()!=null)
+        {
+            criteria.andEqualTo("feedid", stock.getFeedid());
+        }
 
         if (stock.getId() != null) {
             criteria.andEqualTo("id", stock.getId());

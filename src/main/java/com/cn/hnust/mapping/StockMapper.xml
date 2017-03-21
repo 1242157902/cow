@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.hnust.dao.StockMapper" >
   <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Stock" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="feedId" property="feedid" jdbcType="INTEGER" />
+    <result column="feedid" property="feedid" jdbcType="INTEGER" />
     <result column="quantity" property="quantity" jdbcType="DOUBLE" />
     <result column="feedname" property="feedname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, feedId, quantity, feedname
+    id, feedid, quantity, feedname
   </sql>
 
 </mapper>
